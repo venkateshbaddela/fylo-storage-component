@@ -1,0 +1,245 @@
+/* CSS custom properties */
+
+:root {
+  --primary-gradient-1: hsl(6, 100%, 80%);
+  --primaru-gradient-2: hsl(335, 100%, 65%);
+  --neutral-pale-blue: hsl(243, 100%, 93%);
+  --neutral-grayish-blue: hsl(229, 7%, 55%);
+  --neutral-dark-blue: hsl(228, 56%, 26%);
+  --very-dark-blue: hsl(229, 57%, 11%);
+  --color-white: hsl(0, 0%, 100%);
+  --color-black: hsl(0, 0%, 0%);
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+/* Main CSS Style */
+
+body {
+  height: 100vh;
+  font-size: 1.4rem;
+  font-family: "Raleway", sans-serif;
+  background-color: var(--very-dark-blue);
+  background-image: url(../images/bg-desktop.png);
+  background-size: 100% 50%;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  height: 100%;
+  display: flex;
+}
+.main {
+  flex: 0 1 104rem;
+  margin: auto;
+  color: var(--color-white);
+  display: flex;
+  gap: 3.5rem;
+  justify-content: space-evenly;
+}
+
+.seclft {
+  flex: 1 1 37rem;
+  padding: 4.5rem;
+  background-color: var(--neutral-dark-blue);
+  border-top-right-radius: 12.5rem;
+  border-top-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+}
+
+.seclft-logo {
+  margin-bottom: 4rem;
+}
+
+.seclft-icon {
+  width: 5.5rem;
+  height: 5.5rem;
+  fill: var(--color-white);
+  border: 1px solid var(--very-dark-blue);
+  background-color: var(--very-dark-blue);
+  border-radius: 5px;
+  padding: 1rem;
+}
+
+.seclft-icon:not(:last-child) {
+  margin-right: 1.5rem;
+}
+
+.secrgt {
+  position: relative;
+  flex: 1 1 60rem;
+  align-self: flex-end;
+  padding: 4rem;
+  background-color: var(--neutral-dark-blue);
+  border-radius: 1rem;
+}
+
+.secrgt-box {
+  position: absolute;
+  top: -5.5rem;
+  right: 5rem;
+  height: 8.5rem;
+  width: 20rem;
+  background-color: var(--color-white);
+  border-radius: 1rem;
+  border-bottom-right-radius: 0;
+  text-align: center;
+}
+
+.secrgt-box::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: -3rem;
+  right: -0.4rem;
+  height: 3rem;
+  width: 5rem;
+  clip-path: polygon(92% 0, 36% 0, 92% 99%);
+  background-color: var(--color-white);
+}
+
+.secrgt-box__text {
+  padding: 1rem;
+  font-size: 4rem;
+  font-weight: 700;
+  color: var(--color-black);
+}
+
+span {
+  font-size: 1.5rem;
+  color: var(--neutral-grayish-blue);
+}
+
+.secrgt-bar {
+  position: relative;
+  width: 100%;
+  height: 2rem;
+  background-color: var(--very-dark-blue);
+  border-radius: 1rem;
+  background-size: 50% 3px;
+  margin-bottom: 1rem;
+}
+
+.secrgt-bar::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  border: 3.5px solid var(--very-dark-blue);
+  border-radius: 1rem;
+  width: 75%;
+
+  background-image: linear-gradient(
+    to right,
+    var(--primary-gradient-1),
+    var(--primaru-gradient-2)
+  );
+}
+
+.secrgt-bar::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 71.8%;
+  height: 1.25rem;
+  width: 1.25rem;
+  border-radius: 50%;
+  background-color: var(--color-white);
+}
+
+.secrgt-text {
+  margin-bottom: 2rem;
+  font-size: 1.7rem;
+  color: var(--neutral-grayish-blue);
+}
+
+.secrgt-text span {
+  color: var(--color-white);
+  font-weight: 700;
+}
+
+.secrgt-data {
+  display: flex;
+  justify-content: space-between;
+}
+
+.attribution {
+  font-size: 1.5rem;
+  text-align: center;
+  color: var(--color-white);
+}
+.attribution a {
+  color: var(--color-white);
+}
+
+/* Media queries */
+
+@media screen and (max-width: 68.75em) {
+  .main {
+    margin: auto 3rem;
+  }
+}
+
+@media screen and (max-width: 53.125em) {
+  body {
+    background-color: none;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .main {
+    flex: 0 1 50rem;
+    margin: auto;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+  }
+
+  .seclft {
+    flex: 1 1 auto;
+  }
+
+  .secrgt {
+    flex: 1 1 auto;
+    align-self: stretch;
+  }
+
+  .secrgt-box {
+    top: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-bottom-right-radius: 1rem;
+  }
+
+  .secrgt-box::after {
+    content: "";
+    display: none;
+  }
+
+  .secrgt-box__text {
+    padding: 1.5rem 1rem;
+  }
+}
+
+@media screen and (max-width: 31.25em) {
+  .secrgt-text {
+    font-size: 1.35rem;
+  }
+}
